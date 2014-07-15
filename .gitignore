@@ -1,6 +1,16 @@
 *.class
 *.log
 
+# IntelliJ specific
+.idea
+*.iml
+
+# gradle specific
+gradle/
+build/
+output/
+
+
 # sbt specific
 .cache/
 .history/
