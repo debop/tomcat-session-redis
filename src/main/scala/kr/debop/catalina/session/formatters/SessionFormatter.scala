@@ -1,6 +1,7 @@
-package com.github.debop.catalina.session.formatters
+package kr.debop.catalina.session.formatters
 
 import akka.util.ByteString
+import kr.debop.catalina.session.serializer._
 import redis.ByteStringFormatter
 
 abstract class AbstractSessionFormatter[T](val serializer: Serializer[T]) extends ByteStringFormatter[T] {
@@ -18,6 +19,8 @@ abstract class AbstractSessionFormatter[T](val serializer: Serializer[T]) extend
     }
   }
 }
+
+class BinarySessionFormatter[T] extends AbstractSessionFormatter[T](BinarySerializer[T]()) {}
 
 class FstSessionFormatter[T] extends AbstractSessionFormatter[T](FstSerializer[T]()) {}
 

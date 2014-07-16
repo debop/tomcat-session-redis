@@ -1,9 +1,9 @@
-package com.github.debop.catalina.session.formatters
+package kr.debop.catalina.session.serializer
 
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
 
-import com.github.debop.catalina.session._
 import de.ruedigermoeller.serialization.FSTConfiguration
+import kr.debop.catalina.session._
 import org.slf4j.LoggerFactory
 
 import scala.util.{Failure, Success, Try}

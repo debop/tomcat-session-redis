@@ -1,4 +1,4 @@
-package com.github.debop.catalina.session.formatters
+package kr.debop.catalina.session.serializer
 
 /**
  * Serializer

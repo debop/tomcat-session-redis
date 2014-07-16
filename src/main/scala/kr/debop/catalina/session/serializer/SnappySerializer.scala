@@ -1,10 +1,10 @@
-package com.github.debop.catalina.session.formatters
+package kr.debop.catalina.session.serializer
 
 import org.xerial.snappy.Snappy
 
 object SnappySerializer {
 
-  def apply[T](inner: Serializer[T] = FstSerializer[T]()): SnappySerializer[T] = {
+  def apply[T](inner: Serializer[T] = BinarySerializer[T]()): SnappySerializer[T] = {
     new SnappySerializer[T](inner)
   }
 }

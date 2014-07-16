@@ -31,6 +31,7 @@ ext {
     akkaVersion = '2.3.4'
 
     slf4jVersion = '1.7.7'
+    scalatraVersion = '2.3.0'
 }
 
 compileScala {
@@ -50,11 +51,21 @@ dependencies {
 
     compile "ch.qos.logback:logback-classic:1.1.2"
     compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
 
     // We use Scalatest for testing our library
     testCompile "org.scalatest:scalatest_$scalaMainVersion:2.2.0"
     testRuntime 'org.pegdown:pegdown:1.1.0'
     testCompile "com.github.axel22:scalameter_$scalaMainVersion:0.5-M2"
+
+    testCompile "org.scalatra:scalatra_$scalaMainVersion:$scalatraVersion"
+    testCompile "org.scalatra:scalatra-scalate_$scalaMainVersion:$scalatraVersion"
+    testCompile "org.scalatra:scalatra-scalatest_$scalaMainVersion:$scalatraVersion"
+    testCompile "javax.servlet:javax.servlet-api:3.1.0"
+
+    testCompile "org.apache.tomcat.embed:tomcat-embed-core:8.0.9"
+    testCompile "org.apache.tomcat.embed:tomcat-embed-logging-log4j:8.0.9"
+    //testCompile "org.apache.tomcat.embed:tomcat-embed-jasper:8.0.9"
 }
 
 repositories {

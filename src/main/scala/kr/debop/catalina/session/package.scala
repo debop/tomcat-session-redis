@@ -1,4 +1,4 @@
-package com.github.debop.catalina
+package kr.debop.catalina
 
 /**
  * package
