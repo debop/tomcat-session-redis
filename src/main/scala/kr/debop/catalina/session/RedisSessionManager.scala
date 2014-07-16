@@ -1,5 +1,6 @@
 package kr.debop.catalina.session
 
+import kr.debop.catalina.session.event.RedisSessionEventSubscriberActor
 import org.apache.catalina._
 import org.apache.catalina.session.ManagerBase
 import org.apache.catalina.util.LifecycleSupport
@@ -31,6 +32,7 @@ class RedisSessionManager extends ManagerBase with Lifecycle {
 
   @BeanProperty lazy val redis: RedisSessionClient = RedisSessionClient(host, port, database)
 
+  lazy val eventSubscriberActor = RedisSessionEventSubscriberActor(this)
 
   protected val lifecycle = new LifecycleSupport(this)
 
@@ -81,6 +83,8 @@ class RedisSessionManager extends ManagerBase with Lifecycle {
     log.info(s"Will expire session after $getMaxInactiveInterval seconds.")
 
     setDistributable(true)
+    val path = eventSubscriberActor.path
+    log.info(s"Event Listener started. path=$path")
   }
 
   override def stopInternal(): Unit = synchronized {
