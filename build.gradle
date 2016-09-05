@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
         mavenLocal()
     }
@@ -26,7 +27,7 @@ configure(install.repositories.mavenInstaller) {
 
 ext {
     jdkVersion = '1.7'
-    scalaVersion = '2.11.1'
+    scalaVersion = '2.11.8'
     scalaMainVersion = '2.11'
     akkaVersion = '2.3.4'
 
